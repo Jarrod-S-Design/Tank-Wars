@@ -10,6 +10,8 @@ public class Tank_Movement : MonoBehaviour
 	private float rotateSpeed = 5;
 	private float turretRotateSpeed = 3;
 
+	public float bulletSpeed = 0;
+
 	public KeyCode forwardsKey = KeyCode.W;
 	public KeyCode backwardsKey = KeyCode.S;
 	public KeyCode rotateLeftKey = KeyCode.A;
