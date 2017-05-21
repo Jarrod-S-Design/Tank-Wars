@@ -24,18 +24,9 @@ public class Tank_Movement : MonoBehaviour {
 	public KeyCode rotateLeftKey = KeyCode.A;
 	public KeyCode rotateRightKey = KeyCode.D;
 	public KeyCode fireKey = KeyCode.Space;
-	/// Turret
-	// Keyboard
+	// Turret
 	private KeyCode rotateTurretLeftKey = KeyCode.Q;
 	private KeyCode rotateTurretRightKey = KeyCode.E;
-
-	// Health
-	public int health = 1;
-
-	public void TakeDamage(int damageToTake)
-		{
-			health = health - damageToTake;
-		}
 
 	// Use this for initialization
 	void Start () 
@@ -47,11 +38,11 @@ public class Tank_Movement : MonoBehaviour {
 	void Update () 
 	{
 		// Health
-		if (health <= 0)  
-		{
-			Destroy (this.gameObject);
-			return;
-		}
+//		if (health <= 0)  
+//		{
+//			Destroy (this.gameObject);
+//			return;
+//		}
 		/// Movement
 		// Gamepad
 		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * 150.0f;

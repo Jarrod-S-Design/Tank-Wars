@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet_Controller : MonoBehaviour 
 {
-	public int damage = 1;
+	public int damage = 20;
 
 	// Use this for initialization
 	void Start ()
@@ -13,11 +13,12 @@ public class Bullet_Controller : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player") {
-			other.GetComponent<Tank_Movement>
+		if (other.tag == "Player") 
+		{
+			other.GetComponent<Destroy_Tank>
 			().TakeDamage (damage);
+			Destroy (this.gameObject);
 		}
-		Destroy (this.gameObject);
 	}
 	// Update is called once per frame
 	void Update () 
