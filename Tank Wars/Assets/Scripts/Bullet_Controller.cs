@@ -23,6 +23,9 @@ public class Bullet_Controller : MonoBehaviour
 			bulletHealth = bulletHealth - 1;
 			if (bulletHealth < 0)
 				Destroy (this.gameObject);
+		} else if (other.tag == "Bullet")
+		{
+			Destroy (this.gameObject);
 		}
 	}
 	// Update is called once per frame
