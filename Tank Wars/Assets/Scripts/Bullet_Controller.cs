@@ -7,6 +7,8 @@ public class Bullet_Controller : MonoBehaviour
 	public int damage = 20;
 	public int bulletHealth = 4;
 
+	public Transform drawLine;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -14,7 +16,8 @@ public class Bullet_Controller : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player") {
+		if (other.tag == "Player") 
+		{
 			other.GetComponent<Destroy_Tank>
 			().TakeDamage (damage);
 			Destroy (this.gameObject);
