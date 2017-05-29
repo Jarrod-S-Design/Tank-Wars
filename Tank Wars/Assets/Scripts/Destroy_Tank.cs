@@ -13,7 +13,7 @@ public class Destroy_Tank : MonoBehaviour
 		health = health - damageToTake;
 	}
 
-	// Use this for initialization
+	// Run on initialization
 	void Start () 
 	{
 		

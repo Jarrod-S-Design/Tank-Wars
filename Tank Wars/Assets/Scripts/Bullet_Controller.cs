@@ -9,7 +9,7 @@ public class Bullet_Controller : MonoBehaviour
 
 	public Transform drawLine;
 
-	// Use this for initialization
+	// Run on initialization
 	void Start ()
 	{
 //		Destroy (this.gameObject, 3f);		
