@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using XboxCtrlrInput;
 
 public class Game_Manager : MonoBehaviour {
 		
@@ -9,7 +10,7 @@ public class Game_Manager : MonoBehaviour {
 	void Update () 
 	{
 		// Testing
-		if (Input.GetKey (KeyCode.Space)) 
+		if (XCI.GetButtonDown (XboxButton.Back)) 
 		{
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
