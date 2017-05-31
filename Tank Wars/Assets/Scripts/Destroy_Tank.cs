@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Destroy_Tank : MonoBehaviour 
 {
+	// Variables
 	public GameObject tankMain;
+	public GameObject particleSys;
 	// Health
 	public int health = 20;
 
@@ -26,6 +28,7 @@ public class Destroy_Tank : MonoBehaviour
 		if (health <= 0)  
 		{
 			Destroy (this.gameObject);
+			particleSys.SetActive (true);
 			return;
 		}
 	}
