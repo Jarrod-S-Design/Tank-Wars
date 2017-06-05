@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using XboxCtrlrInput;
 
-public class Game_Manager : MonoBehaviour {
-		
+public class Game_Manager : MonoBehaviour 
+{
 	// Update is called once per frame
 	void Update () 
 	{

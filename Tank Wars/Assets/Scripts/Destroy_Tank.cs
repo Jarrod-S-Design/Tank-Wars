@@ -24,7 +24,7 @@ public class Destroy_Tank : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		// When the tanks get shot they are destroyed
 		if (health <= 0)  
 		{
 			Destroy (this.gameObject);

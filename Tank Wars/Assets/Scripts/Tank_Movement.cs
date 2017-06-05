@@ -30,11 +30,15 @@ public class Tank_Movement : MonoBehaviour
 	public GameObject bulletPrefab;
 	public GameObject turret;
 
+	// Bullet Counter
+	public GameObject bullet1;
+	public GameObject bullet2;
+	public GameObject bullet3;
+
 	// Run on initialization
 	void Start () 
 	{
 		shootingTimer = Time.time;
-	//	reload = Time.time;
 		var bullet = GetComponent<Rigidbody> ();
 	}
 
@@ -48,10 +52,14 @@ public class Tank_Movement : MonoBehaviour
 		transform.Translate (0, 0, z);
 
 		// Shooting
+		// Variable allowing the if statement to convert to a bool
+		var trigger = XCI.GetAxis (XboxAxis.RightTrigger, controller);
+
 		if (loaded) 
 		{
 			reload = Time.time;
-			if (XCI.GetButtonDown (XboxButton.RightBumper, controller)) 
+//			if (XCI.GetButtonDown (XboxButton.RightBumper, controller)) 
+			if (trigger >= 0.3f)
 			{
 				if (Time.time - shootingTimer > timeBetweenShots) 
 				{
@@ -60,12 +68,10 @@ public class Tank_Movement : MonoBehaviour
 				}
 			}
 		}
-
 		Reload ();
-	
 	}
 
-	// Handles clip size and for tanks
+	// Handles clip size and bullet deduction for tanks
 	void TankClip ()
 	{
 		currentClip = currentClip -1;
