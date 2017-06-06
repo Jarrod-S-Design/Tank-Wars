@@ -8,14 +8,33 @@ public class Game_Manager : MonoBehaviour
 {
 	// Variables
 	private Score score;
-
+	private GameObject p1;
+	private bool restart = false;
+	public bool playerDead = false;
 	void Start ()
 	{
 		score = gameObject.GetComponent<Score> ();
+//		playerDead = p1.GetComponent<Destroy_Tank> ().playerDead;
 	}
 	// Update is called once per frame
 	void Update () 
 	{
+//		p1 = GameObject.FindGameObjectWithTag("Player1");
+//		playerDead = p1.GetComponent<Destroy_Tank> ().playerDead;
+
+		if (playerDead == true) 
+		{
+			restart = true;	
+		} else 
+		{
+			restart = false;
+		}
+
+		if (restart == true)
+		{
+			playerDead = false;
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		}
 		// Testing restart
 		if (XCI.GetButtonDown (XboxButton.Back)) 
 		{
@@ -35,6 +54,10 @@ public class Game_Manager : MonoBehaviour
 				// Reset the game over bool
 				score.gameOver = false;
 				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+			}
+			if (XCI.GetButtonDown (XboxButton.B)) 
+			{
+				Application.Quit ();
 			}
 		}	
 	}

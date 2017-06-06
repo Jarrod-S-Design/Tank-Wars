@@ -34,7 +34,7 @@ public class Tank_Movement : MonoBehaviour
 	void Start () 
 	{
 		shootingTimer = Time.time;
-		var bullet = GetComponent<Rigidbody> ();
+//[Old Code]var bullet = GetComponent<Rigidbody> ();
 	}
 
 	// Update is called once per frame
@@ -53,7 +53,7 @@ public class Tank_Movement : MonoBehaviour
 		if (loaded) 
 		{
 			reload = Time.time;
-//			if (XCI.GetButtonDown (XboxButton.RightBumper, controller)) 
+//[Old Code]if (XCI.GetButtonDown (XboxButton.RightBumper, controller)) 
 			if (trigger >= 0.3f)
 			{
 				if (Time.time - shootingTimer > timeBetweenShots) 

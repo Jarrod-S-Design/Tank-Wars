@@ -7,6 +7,7 @@ public class Destroy_Tank : MonoBehaviour
 	// Variables
 	public GameObject tankMain;
 	public GameObject particleSys;
+//	public bool playerDead = false;
 
 	// Health
 	public int health = 20;
