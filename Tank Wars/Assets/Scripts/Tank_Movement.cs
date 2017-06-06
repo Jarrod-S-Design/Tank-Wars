@@ -30,11 +30,6 @@ public class Tank_Movement : MonoBehaviour
 	public GameObject bulletPrefab;
 	public GameObject turret;
 
-	// Bullet Counter
-	public GameObject bullet1;
-	public GameObject bullet2;
-	public GameObject bullet3;
-
 	// Run on initialization
 	void Start () 
 	{
@@ -68,6 +63,7 @@ public class Tank_Movement : MonoBehaviour
 				}
 			}
 		}
+
 		Reload ();
 	}
 

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour 
 {
 	// Variables
+	public static Score instance = null;
+
 	public int scoreToReach = 3;
 	public int player1Score = 0;
 	public int player2Score = 0;
@@ -16,10 +18,17 @@ public class Score : MonoBehaviour
 	private bool p1Wins = false;
 	private bool p2Wins = false;
 
-	// Use this for initialization
-	void Start () 
+	// Don't destroy this object between scenes
+	void Awake ()
 	{
-		
+		if (instance == null) 
+		{
+			instance = this;
+		} else if (instance != this) 
+		{
+			Destroy (this.gameObject);
+		}
+		DontDestroyOnLoad (transform.gameObject);	
 	}
 	
 	// Update is called once per frame

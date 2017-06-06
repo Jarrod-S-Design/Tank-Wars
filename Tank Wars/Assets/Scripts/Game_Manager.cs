@@ -15,4 +15,8 @@ public class Game_Manager : MonoBehaviour
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
 	}
+	public void NextRound ()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
 }

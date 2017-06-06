@@ -32,7 +32,7 @@ public class Bullet_Controller : MonoBehaviour
 		{
 			bulletHealth = bulletHealth - 1;
 			if (bulletHealth < 0)
-				Destroy (this.gameObject);
+			Destroy (this.gameObject);
 		} 
 		else if (other.tag == "Bullet")
 		{
