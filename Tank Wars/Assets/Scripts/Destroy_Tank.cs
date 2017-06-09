@@ -5,24 +5,23 @@ using UnityEngine;
 public class Destroy_Tank : MonoBehaviour 
 {
 	// Variables
-	public GameObject tankMain;
-	public GameObject particleSys;
-//	public bool playerDead = false;
+	public GameObject tankMain;					// Defines the game object for the tank treads the chasis and turret are attached to
+	public GameObject particleSys;				// Defines the game object that fire death particle system is attached to 
 
 	// Health
-	public int health = 20;
+	public int health = 20;						// Tank health
 
-	// Bullet Counter
-	public GameObject bullet1;
-	public GameObject bullet2;
-	public GameObject bullet3;
+	// Bullet Counter	
+	public GameObject bullet1;					// Defines the game object first bullet counter 
+	public GameObject bullet2;					// Defines the game object Second bullet counter
+	public GameObject bullet3;					// Defines the game object Third bullet counter
 
 	// Accesses the Tank_Movement script to get at currentClip
 	private Tank_Movement tankMovementScript;
 
-	public bool bulletCounter1 = true;
-	public bool bulletCounter2 = true;
-	public bool bulletCounter3 = true;
+	public bool bulletCounter1 = true;			// Wether or not the first bullet counter is on/off
+	public bool bulletCounter2 = true;			// Wether or not the second bullet counter is on/off
+	public bool bulletCounter3 = true;			// Wether or not the third bullet counter is on/off
 
 
 	public void TakeDamage(int damageToTake)
@@ -31,6 +30,7 @@ public class Destroy_Tank : MonoBehaviour
 	}
 
 	// Run on initialization
+	// Finds the gama manager using the defined game object
 	void Start () 
 	{
 		tankMovementScript = tankMain.GetComponent<Tank_Movement> ();
@@ -47,6 +47,7 @@ public class Destroy_Tank : MonoBehaviour
 			return;
 		}
 		// Bullet Counter
+		// Keeps track of which bullets should be on/off
 		if (tankMovementScript.currentClip == 0)
 		{
 			bulletCounter1 = false;

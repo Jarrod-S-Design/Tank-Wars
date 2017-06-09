@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Bullet_Controller : MonoBehaviour 
 {
-	public GameObject scoreObj;
-//	public Score score;
-
-	public int damage = 20;
-	public int bulletHealth = 4;
-
-	public GameObject gm;
+	// Bullet
+	public int damage = 20;						// Bullet damage
+	public int bulletHealth = 4;				// Number of times the bullet can bounce before dying -1
+	// Game Manager
+	public GameObject gm;						// Defines the game manager object
 
 	// Run on initialization
+	// Finds the gama manager using its tag
 	void Start ()
 	{
 		gm = GameObject.FindGameObjectWithTag("GameController");
-//		score = gm.GetComponent<Score>;
 	}
+
+	// Checks what the bullet is hitting
+	// If its one of the players it destroy's them and updates the score
+	// if its a wall the bullet will deduct one from its health
+	// if its another bullet the bullet will destroy itself
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player2") 

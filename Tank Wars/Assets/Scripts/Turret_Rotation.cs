@@ -6,16 +6,10 @@ using XboxCtrlrInput;
 public class Turret_Rotation : MonoBehaviour {
 
 	//Variables
-	public XboxController controller;
-	public Vector3 previousRotationDirection = Vector3.forward;
+	public XboxController controller;									// Allows the both controllers to be used
 	public float rotateSpeed = 0;
+//	public Vector3 previousRotationDirection = Vector3.forward;			// Used for aiming [OLD]
 
-	// Run on initialization
-	void Start () 
-	{
-		
-	}
-	
 	// Update is called once per frame
 	void Update () 
 	{
@@ -28,10 +22,10 @@ public class Turret_Rotation : MonoBehaviour {
 		// Turret Rotation New
 		var x = XCI.GetAxis(XboxAxis.RightStickX, controller) * Time.deltaTime * rotateSpeed;
 		transform.Rotate(0, x, 0);
-		var x2 = XCI.GetAxis(XboxAxis.LeftStickX, controller) * Time.deltaTime * -100.0f;
+		var x2 = XCI.GetAxis(XboxAxis.LeftStickX, controller) * Time.deltaTime * -110.0f;
 		transform.Rotate(0, x2, 0);
 
-	// Turret Rotation Old
+	// Turret Rotation [OLD]
 //		float rotateAxisX = XCI.GetAxis(XboxAxis.RightStickX, controller);
 //		float rotateAxisZ = XCI.GetAxis(XboxAxis.RightStickY, controller);
 //		
