@@ -25,7 +25,9 @@ public class Tank_Movement : MonoBehaviour
 	// Game Objects
 	public GameObject bulletPrefab;						// Tells the tank what to shoot
 	public GameObject turret;							// Defines the turret game object for this script to use
+	[HideInInspector]
 	public GameObject gM;								// Defines the game manager game object for this script to use
+	public bool canMove = true;							// Whether or not this player can move
 
 	// Run on initialization
 	void Start () 
@@ -37,27 +39,31 @@ public class Tank_Movement : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if ((gM.GetComponent<Score> ().gameOver) == false) 
+		if ((gM.GetComponent<Score> ().dontMove) == false) 
 		{
-			// Movement controls
-			var x = XCI.GetAxis (XboxAxis.LeftStickX, controller) * Time.deltaTime * forwardSpeed;
-			var z = XCI.GetAxis (XboxAxis.LeftStickY, controller) * Time.deltaTime * rotateSpeed;
-			transform.Rotate (0, x, 0);
-			transform.Translate (0, 0, z);
-
-			// Shooting
-			// Variable allowing the if statement to convert to a bool
-			var trigger = XCI.GetAxis (XboxAxis.RightTrigger, controller);
-
-			if (loaded) 
+			if (canMove == true) 
 			{
-				reload = Time.time;
-//[Old Code]if (XCI.GetButtonDown (XboxButton.RightBumper, controller)) 
-				if (trigger >= 0.3f) {
-					if (Time.time - shootingTimer > timeBetweenShots) 
+				// Movement controls
+				var x = XCI.GetAxis (XboxAxis.LeftStickX, controller) * Time.deltaTime * forwardSpeed;
+				var z = XCI.GetAxis (XboxAxis.LeftStickY, controller) * Time.deltaTime * rotateSpeed;
+				transform.Rotate (0, x, 0);
+				transform.Translate (0, 0, z);
+
+				// Shooting
+				// Variable allowing the if statement to convert to a bool
+				var trigger = XCI.GetAxis (XboxAxis.RightTrigger, controller);
+
+				if (loaded) 
+				{
+					reload = Time.time;
+					//[Old Code]if (XCI.GetButtonDown (XboxButton.RightBumper, controller)) 
+					if (trigger >= 0.3f) 
 					{
-						FireBullet ();
-						TankClip ();
+						if (Time.time - shootingTimer > timeBetweenShots) 
+						{
+							FireBullet ();
+							TankClip ();
+						}
 					}
 				}
 			}

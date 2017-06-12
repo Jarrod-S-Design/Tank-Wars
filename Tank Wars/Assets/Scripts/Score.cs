@@ -8,8 +8,10 @@ public class Score : MonoBehaviour
 	// Variables
 	public static Score instance = null;		
 	// Score
-	public int scoreToReach = 3;				// Number of rounds players need to reach to win
+	public int scoreToReach = 3;				// Number of rounds players need to reach to win9
+	[HideInInspector]
 	public int player1Score = 0;				// Player one's current score
+	[HideInInspector]
 	public int player2Score = 0;				// Player two's current score
 	// Score text
 	public Text p1ScoreText;					// Defines the text object to write player one's score to
@@ -20,13 +22,19 @@ public class Score : MonoBehaviour
 	public GameObject vScreen;					// Defines the victory screen object to be turned on and off
 	// Timer bool
 	public float timeToWait;					// Sets the amount of time to wait before performing an action
-	public float countdown;						// Used to count up past timeToWait
-	public bool countingDown = false;			// Tracks if the timer is currently counting down
+	private float countdown;						// Used to count up past timeToWait
+	private bool countingDown = false;			// Tracks if the timer is currently counting down
 	// Victory condition bools
+	[HideInInspector]
 	public bool p1Wins = false;					// Whether or not player one has won the match
+	[HideInInspector]
 	public bool p2Wins = false;					// Whether or not player two has won the match
-	private bool draw = false;					// Whether or not the match was a draw 
+	[HideInInspector]
+	public bool draw = false;					// Whether or not the match was a draw 
+	[HideInInspector]
 	public bool gameOver = false;				// Whether or not the match has ended
+//	[HideInInspector]
+	public bool dontMove = false;
 
 	// Checks if there is already a game manager in the scene
 	// If there is it destroys the new one the scene is trying to make
@@ -53,11 +61,13 @@ public class Score : MonoBehaviour
 		}
 		if (draw == false) 
 		{
-			if (player1Score == scoreToReach) {
+			if (player1Score == scoreToReach) 
+			{
 				p1Wins = true;
 				gameOver = true;
 			}
-			else if (player2Score == scoreToReach) {
+			else if (player2Score == scoreToReach) 
+			{
 				p2Wins = true;
 				gameOver = true;
 			}
@@ -113,6 +123,7 @@ public class Score : MonoBehaviour
 		{
 			countingDown = false;
 			vScreen.SetActive (true);
+			dontMove = true;
 		}
 	}
 }
