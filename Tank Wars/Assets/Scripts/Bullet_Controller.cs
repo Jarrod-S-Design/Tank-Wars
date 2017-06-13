@@ -13,8 +13,8 @@ public class Bullet_Controller : MonoBehaviour
 	private GameObject p2;						// Defines player 2's tank treads
 	public GameObject wallPuff;					// Defines the particle system for bouncing off of walls
 	public GameObject explosion;				// Defines the particle system for death explosions
-	public GameObject bulletTrail;				// Defines the prefab for the bullet kill trail
-	public bool trailActive = false;			// Whether or not the bullet has a trail following it
+
+
 
 	// Run on initialization
 	// Finds the gama manager using its tag
@@ -23,8 +23,6 @@ public class Bullet_Controller : MonoBehaviour
 		gm = GameObject.FindGameObjectWithTag ("GameController");
 		p1 = GameObject.FindGameObjectWithTag ("P1 Main");
 		p2 = GameObject.FindGameObjectWithTag ("P2 Main");
-		Instantiate (bulletTrail, this.gameObject.transform.position,Quaternion.identity);
-		trailActive = true;
 	}
 
 	// Checks what the bullet is hitting
